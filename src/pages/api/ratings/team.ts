@@ -2,7 +2,7 @@ import type { NextApiRequest, NextApiResponse } from "next";
 import CSVtoJSON from "convert-csv-to-json";
 import { TeamsRatingsFolder } from "../../../../database/config";
 
-import { TeamRating } from "../../../interfaces/teamRating";
+import { TeamRating } from "../../../interfaces/api/teamRating";
 
 type TeamRatings = {
   data: Array<TeamRating>;
@@ -14,5 +14,5 @@ export default (req: NextApiRequest, res: NextApiResponse<TeamRatings>) => {
     `${TeamsRatingsFolder}/${id}.csv`
   );
 
-  return res.status(200).json({ data: teamRatings });
+  return res.status(200).json(teamRatings);
 };

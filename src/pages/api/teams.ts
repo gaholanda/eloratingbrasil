@@ -2,7 +2,7 @@ import type { NextApiRequest, NextApiResponse } from "next";
 import CSVtoJSON from "convert-csv-to-json";
 import { TeamsData } from "../../../database/config";
 
-import { Team } from "../../interfaces/team";
+import { Team } from "../../interfaces/api/team";
 
 type Teams = {
   data: Array<Team>;
@@ -14,8 +14,8 @@ export default (req: NextApiRequest, res: NextApiResponse<Teams>) => {
 
   if (id) {
     const team = teams.filter((item: Team) => item.id === id);
-    return res.status(200).json({ data: team });
+    return res.status(200).json(team);
   }
 
-  return res.status(200).json({ data: teams });
+  return res.status(200).json(teams);
 };

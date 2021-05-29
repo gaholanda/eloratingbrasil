@@ -2,7 +2,7 @@ import type { NextApiRequest, NextApiResponse } from "next";
 import CSVtoJSON from "convert-csv-to-json";
 import { TournamentsData } from "../../../database/config";
 
-import { Tournament } from "../../interfaces/tournament";
+import { Tournament } from "../../interfaces/api/tournament";
 
 type Tournaments = {
   data: Array<Tournament>;
@@ -16,8 +16,8 @@ export default (req: NextApiRequest, res: NextApiResponse<Tournaments>) => {
 
   if (id) {
     const tournament = tournaments.filter((item: Tournament) => item.id === id);
-    return res.status(200).json({ data: tournament });
+    return res.status(200).json(tournament);
   }
 
-  return res.status(200).json({ data: tournaments });
+  return res.status(200).json(tournaments);
 };

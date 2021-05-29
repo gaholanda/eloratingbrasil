@@ -12,5 +12,5 @@ export default (req: NextApiRequest, res: NextApiResponse<Matches>) => {
   const { year } = req.query;
   const matches = CSVtoJSON.getJsonFromCsv(`${MatchesFolder}/${year}.csv`);
 
-  return res.status(200).json({ data: matches });
+  return res.status(200).json(matches);
 };
