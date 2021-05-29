@@ -2,7 +2,8 @@ const FS = require("fs");
 const CSV2JSON = require("convert-csv-to-json");
 const CalcElo = require("./calcelo");
 
-const RatingsTeamsFolder = "data/ratings/teams";
+const RootFolder = "database";
+const RatingsTeamsFolder = `${RootFolder}/ratings/teams`;
 
 function teamRatingsFileExists(team_id) {
   let file = `${RatingsTeamsFolder}/${team_id}.csv`;
@@ -31,9 +32,9 @@ function updateTeamRatings(team_id, content) {
 function CalcRatings() {
   console.log(">>> Calculando ratings...");
   let file = process.argv[2];
-  let teams = CSV2JSON.getJsonFromCsv(`data/teams.csv`);
-  let matches = CSV2JSON.getJsonFromCsv(`data/matches/${file}.csv`);
-  let tournaments = CSV2JSON.getJsonFromCsv(`data/tournaments.csv`);
+  let teams = CSV2JSON.getJsonFromCsv(`${RootFolder}/teams.csv`);
+  let matches = CSV2JSON.getJsonFromCsv(`${RootFolder}/matches/${file}.csv`);
+  let tournaments = CSV2JSON.getJsonFromCsv(`${RootFolder}/tournaments.csv`);
 
   matches.map((match, i) => {
     if (i > -1) {

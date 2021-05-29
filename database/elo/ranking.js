@@ -1,6 +1,7 @@
 const FS = require("fs");
 const CSV2JSON = require("convert-csv-to-json");
-const RatingsTeamsFolder = "data/ratings/teams";
+const RootFolder = "database";
+const RatingsTeamsFolder = `${RootFolder}/ratings/teams`;
 
 function teamRatingsFileExists(team_id) {
   let file = `${RatingsTeamsFolder}/${team_id}.csv`;
@@ -40,8 +41,8 @@ function getTeamRatings(team_id) {
 function CreateRanking() {
   console.log("Criando ranking...");
   let file = process.argv[2];
-  let teams = CSV2JSON.getJsonFromCsv(`data/teams.csv`);
-  let ranking_file = `data/ratings/rankings/ranking-${file}.csv`;
+  let teams = CSV2JSON.getJsonFromCsv(`${RootFolder}/teams.csv`);
+  let ranking_file = `${RootFolder}/ratings/rankings/ranking-${file}.csv`;
   let rankings = [];
 
   let fileExists = FS.existsSync(ranking_file);
