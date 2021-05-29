@@ -1,24 +1,14 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import CSVtoJSON from "convert-csv-to-json";
-import { RankingFolder, LastRankingData } from "../../../../database/config";
+import { RatingFolder, LastRatingData } from "../../../../database/config";
 
-interface Ranking {
-  id: string;
-  Ro: string;
-  Rn: string;
-  matches: string;
-  wins: string;
-  draws: string;
-  losses: string;
-}
+import { Rating } from "../../../interfaces/rating";
 
-type Rankings = {
-  data: Array<Ranking>;
+type Ratings = {
+  data: Array<Rating>;
 };
 
-export default (req: NextApiRequest, res: NextApiResponse<Rankings>) => {
-  const rankings = CSVtoJSON.getJsonFromCsv(
-    `${RankingFolder}/${LastRankingData}`
-  );
-  return res.status(200).json({ data: rankings });
+export default (req: NextApiRequest, res: NextApiResponse<Ratings>) => {
+  const ratings = CSVtoJSON.getJsonFromCsv(`${RatingFolder}/${LastRatingData}`);
+  return res.status(200).json({ data: ratings });
 };

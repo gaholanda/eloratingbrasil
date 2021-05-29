@@ -7,16 +7,20 @@
     "build": "next build",
     "start": "next start",
     "matches": "node database/elo/matches.js",
-    "ranking": "node database/elo/ranking.js"
+    "ratings": "node database/elo/ratings.js"
   },
   "dependencies": {
+    "axios": "^0.21.1",
     "convert-csv-to-json": "^1.3.0",
     "next": "10.2.3",
     "react": "17.0.2",
-    "react-dom": "17.0.2"
+    "react-dom": "17.0.2",
+    "styled-components": "^5.3.0"
   },
   "devDependencies": {
     "@types/react": "17.0.8",
+    "@types/styled-components": "^5.1.9",
+    "babel-plugin-styled-components": "^1.12.0",
     "typescript": "4.3.2"
   }
 }

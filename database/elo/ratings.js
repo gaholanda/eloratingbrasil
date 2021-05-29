@@ -42,7 +42,7 @@ function CreateRanking() {
   console.log("Criando ranking...");
   let file = process.argv[2];
   let teams = CSV2JSON.getJsonFromCsv(`${RootFolder}/teams.csv`);
-  let ranking_file = `${RootFolder}/ratings/rankings/ranking-${file}.csv`;
+  let ranking_file = `${RootFolder}/ratings/${file}.csv`;
   let rankings = [];
 
   let fileExists = FS.existsSync(ranking_file);

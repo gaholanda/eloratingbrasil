@@ -2,14 +2,7 @@ import type { NextApiRequest, NextApiResponse } from "next";
 import CSVtoJSON from "convert-csv-to-json";
 import { MatchesFolder } from "../../../database/config";
 
-interface Match {
-  date: string;
-  home_team_id: string;
-  home_team_goals: string;
-  away_team_goals: string;
-  away_team_id: string;
-  tournament_id: string;
-}
+import { Match } from "../../interfaces/api/match";
 
 type Matches = {
   data: Array<Match>;
