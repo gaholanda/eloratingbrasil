@@ -2,7 +2,7 @@ import type { NextApiRequest, NextApiResponse } from "next";
 import CSVtoJSON from "convert-csv-to-json";
 import { TeamsData } from "../../../database/config";
 
-import { Team } from "../../interfaces/api/team";
+import Team from "../../interfaces/api/TeamInterface";
 
 type Teams = {
   data: Array<Team>;

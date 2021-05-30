@@ -1,4 +1,4 @@
-export interface Match {
+export default interface Match {
   date: string;
   home_team_id: string;
   home_team_goals: string;

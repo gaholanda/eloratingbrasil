@@ -2,7 +2,7 @@ import type { NextApiRequest, NextApiResponse } from "next";
 import CSVtoJSON from "convert-csv-to-json";
 import { MatchesFolder } from "../../../database/config";
 
-import { Match } from "../../interfaces/api/match";
+import Match from "../../interfaces/api/MatchInterface";
 
 type Matches = {
   data: Array<Match>;

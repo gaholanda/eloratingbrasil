@@ -1,9 +1,12 @@
 import styled from "styled-components";
 
 const NavBar = styled.div`
+  position: sticky;
+  top: 0;
   display: flex;
   flex-direction: row;
   align-items: center;
+  width: 100%;
   padding: 1rem;
   background-color: ${({ theme }) => theme.colors.alternative};
   border-bottom: 2px solid ${({ theme }) => theme.colors.secondary};

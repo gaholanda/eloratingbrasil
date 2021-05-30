@@ -1,7 +1,8 @@
 import React, { useState, useEffect, createContext } from "react";
 import axios from "axios";
 
-import { AppContextData, AppProviderProps } from "../interfaces/contexts/app";
+import AppContextData from "../interfaces/contexts/AppContextData";
+import AppProviderProps from "../interfaces/contexts/AppProviderProps";
 
 export const AppContext = createContext({} as AppContextData);
 

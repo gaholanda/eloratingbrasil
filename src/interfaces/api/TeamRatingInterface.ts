@@ -1,4 +1,4 @@
-export interface TeamRating {
+export default interface TeamRating {
   date: string;
   result: string;
   team_id: string;

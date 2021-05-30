@@ -1,11 +1,10 @@
 import axios from "axios";
 import nprogress from "nprogress";
 import { useEffect, useContext, useState } from "react";
-import { AppContext } from "../contexts/app";
 
+import { AppContext } from "../contexts/AppContext";
 import Container from "../styles/components/container";
-
-import { Rating } from "../interfaces/api/rating";
+import TableData from "../components/TableData";
 
 export default function Home() {
   const { teams } = useContext(AppContext);
@@ -13,21 +12,16 @@ export default function Home() {
 
   useEffect(() => {
     nprogress.start();
-    axios.get("api/ratings").then(({ data }) => setRatings(data));
+    axios.get("api/ratings").then(({ data }) => {
+      setRatings(data);
+      nprogress.done();
+    });
   }, [teams]);
 
   return (
     <Container>
       <h3>Classificação até 29 de maio de 2021</h3>
-      <ol>
-        {teams &&
-          teams?.length > 0 &&
-          ratings.length > 0 &&
-          ratings.map((rating: Rating) => {
-            const team = teams?.filter((team) => team.id === rating.id)[0];
-            return <li key={team?.id}>{team?.name}</li>;
-          })}
-      </ol>
+      <TableData data={ratings} />
     </Container>
   );
 }

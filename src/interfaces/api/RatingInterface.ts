@@ -1,4 +1,4 @@
-export interface Rating {
+export default interface Rating {
   id: string;
   Ro: string;
   Rn: string;

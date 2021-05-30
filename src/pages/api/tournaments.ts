@@ -2,7 +2,7 @@ import type { NextApiRequest, NextApiResponse } from "next";
 import CSVtoJSON from "convert-csv-to-json";
 import { TournamentsData } from "../../../database/config";
 
-import { Tournament } from "../../interfaces/api/tournament";
+import Tournament from "../../interfaces/api/TournamentInterface";
 
 type Tournaments = {
   data: Array<Tournament>;
