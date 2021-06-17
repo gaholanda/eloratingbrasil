@@ -20,7 +20,6 @@ export default function Home() {
 
   return (
     <Container>
-      <h3>Classificação até 29 de maio de 2021</h3>
       <TableData data={ratings} />
     </Container>
   );
